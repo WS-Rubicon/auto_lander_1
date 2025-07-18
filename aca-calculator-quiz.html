@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculate Your Health Benefits in 10 Seconds</title>
+    <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .calculator-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 500px;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        .calculator-header {
+            background: #4caf50;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .calculator-icon {
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+        
+        h1 {
+            font-size: 28px;
+            font-weight: normal;
+            margin-bottom: 10px;
+        }
+        
+        .calculator-body {
+            padding: 40px 30px;
+        }
+        
+        .question-container {
+            display: none;
+        }
+        
+        .question-container.active {
+            display: block;
+            animation: slideIn 0.3s ease;
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        .question {
+            font-size: 22px;
+            margin-bottom: 30px;
+            color: #333;
+        }
+        
+        .answer-options {
+            display: grid;
+            gap: 15px;
+        }
+        
+        .answer-btn {
+            background: #f5f5f5;
+            border: 2px solid transparent;
+            padding: 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+        
+        .answer-btn:hover {
+            border-color: #4caf50;
+            background: #e8f5e9;
+            transform: translateY(-2px);
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: #4caf50;
+            width: 25%;
+            transition: width 0.5s ease;
+        }
+        
+        .calculating-screen {
+            display: none;
+            text-align: center;
+            padding: 60px 30px;
+        }
+        
+        .spinner {
+            width: 80px;
+            height: 80px;
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #4caf50;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .result-screen {
+            display: none;
+            text-align: center;
+        }
+        
+        .result-amount {
+            font-size: 72px;
+            font-weight: bold;
+            color: #4caf50;
+            margin: 20px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .result-details {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .benefit-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            font-size: 16px;
+        }
+        
+        .cta-button {
+            display: block;
+            background: #ff5722;
+            color: white;
+            padding: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 10px;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255,87,34,0.3);
+        }
+        
+        .cta-button:hover {
+            background: #f4511e;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255,87,34,0.4);
+        }
+        
+        .trust-indicators {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px 0;
+            padding-top: 30px;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .trust-item {
+            text-align: center;
+            color: #666;
+        }
+        
+        .trust-icon {
+            font-size: 32px;
+            margin-bottom: 5px;
+        }
+        
+        .trust-text {
+            font-size: 12px;
+        }
+        
+        @media (max-width: 640px) {
+            .calculator-body {
+                padding: 30px 20px;
+            }
+            
+            .question {
+                font-size: 20px;
+            }
+            
+            .result-amount {
+                font-size: 56px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="calculator-header">
+            <div class="calculator-icon">💰</div>
+            <h1>Health Benefits Calculator</h1>
+            <p>Find out how much you qualify for in 10 seconds</p>
+        </div>
+        
+        <div class="calculator-body">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress"></div>
+            </div>
+            
+            <!-- Question 1 -->
+            <div class="question-container active" id="q1">
+                <h2 class="question">What's your current health coverage situation?</h2>
+                <div class="answer-options">
+                    <button class="answer-btn" onclick="nextQuestion(1, 'high')">
+                        😟 No coverage / Too expensive
+                    </button>
+                    <button class="answer-btn" onclick="nextQuestion(1, 'medium')">
+                        😐 Have coverage but struggling with costs
+                    </button>
+                    <button class="answer-btn" onclick="nextQuestion(1, 'low')">
+                        😊 Happy with current coverage
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Question 2 -->
+            <div class="question-container" id="q2">
+                <h2 class="question">How much do you spend on health costs monthly?</h2>
+                <div class="answer-options">
+                    <button class="answer-btn" onclick="nextQuestion(2, 'high')">
+                        💸 Over $300/month
+                    </button>
+                    <button class="answer-btn" onclick="nextQuestion(2, 'medium')">
+                        💵 $100-300/month
+                    </button>
+                    <button class="answer-btn" onclick="nextQuestion(2, 'low')">
+                        💰 Under $100/month
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Question 3 -->
+            <div class="question-container" id="q3">
+                <h2 class="question">Do you have any ongoing health needs?</h2>
+                <div class="answer-options">
+                    <button class="answer-btn" onclick="nextQuestion(3, 'high')">
+                        💊 Yes, regular medications/visits
+                    </button>
+                    <button class="answer-btn" onclick="nextQuestion(3, 'medium')">
+                        🏥 Occasional doctor visits
+                    </button>
+                    <button class="answer-btn" onclick="showResults()">
+                        ✅ Rarely need medical care
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Calculating Screen -->
+            <div class="calculating-screen" id="calculating">
+                <div class="spinner"></div>
+                <h2 style="margin-bottom: 15px;">Calculating Your Benefits...</h2>
+                <p style="color: #666;">Checking 2025 eligibility requirements</p>
+            </div>
+            
+            <!-- Results Screen -->
+            <div class="result-screen" id="results">
+                <h2 style="color: #4caf50; margin-bottom: 10px;">🎉 Great News!</h2>
+                <p style="font-size: 20px; margin-bottom: 20px;">You likely qualify for:</p>
+                
+                <div class="result-amount">$500</div>
+                <p style="font-size: 24px; color: #666; margin-bottom: 30px;">Per Month</p>
+                
+                <div class="result-details">
+                    <h3 style="margin-bottom: 15px;">Your Benefits Breakdown:</h3>
+                    <div class="benefit-item">
+                        <span>Health & Medical</span>
+                        <strong>$300</strong>
+                    </div>
+                    <div class="benefit-item">
+                        <span>Prescriptions</span>
+                        <strong>$125</strong>
+                    </div>
+                    <div class="benefit-item">
+                        <span>Dental & Vision</span>
+                        <strong>$75</strong>
+                    </div>
+                </div>
+                
+                <p style="background: #fff3cd; padding: 15px; border-radius: 10px; margin: 20px 0;">
+                    <strong>⚠️ Important:</strong> Benefits must be claimed before enrollment closes
+                </p>
+                
+                <a href="https://hpkpn.ttrk.io/click" class="cta-button">
+                    CLAIM YOUR $500/MONTH →
+                </a>
+                
+                <div class="trust-indicators">
+                    <div class="trust-item">
+                        <div class="trust-icon">⚡</div>
+                        <div class="trust-text">Instant<br>Approval</div>
+                    </div>
+                    <div class="trust-item">
+                        <div class="trust-icon">🔒</div>
+                        <div class="trust-text">Secure<br>Process</div>
+                    </div>
+                    <div class="trust-item">
+                        <div class="trust-icon">✅</div>
+                        <div class="trust-text">No<br>Obligation</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let currentQuestion = 1;
+        
+        function nextQuestion(qNum, answer) {
+            // Hide current question
+            document.getElementById('q' + qNum).classList.remove('active');
+            
+            // Update progress
+            currentQuestion++;
+            document.getElementById('progress').style.width = (currentQuestion * 25) + '%';
+            
+            // Show next question
+            if (qNum < 3) {
+                setTimeout(() => {
+                    document.getElementById('q' + (qNum + 1)).classList.add('active');
+                }, 300);
+            }
+        }
+        
+        function showResults() {
+            // Hide last question
+            document.getElementById('q3').classList.remove('active');
+            
+            // Show calculating screen
+            document.getElementById('calculating').style.display = 'block';
+            
+            // After delay, show results
+            setTimeout(() => {
+                document.getElementById('calculating').style.display = 'none';
+                document.getElementById('results').style.display = 'block';
+                document.getElementById('progress').style.width = '100%';
+            }, 2500);
+        }
+        
+        // Track clicks
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (this.href.includes('healthcarepronto.com')) return;
+                e.preventDefault();
+                window.location.href = 'https://hpkpn.ttrk.io/click';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚠️ FINAL NOTICE: Your $6,000 Health Benefit Expires in 48 Hours</title>
+    <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+        
+        .warning-header {
+            background: #d32f2f;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        .timer-section {
+            background: #1976d2;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        
+        .timer-label {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .timer {
+            font-size: 48px;
+            font-weight: bold;
+            font-family: 'Courier New', monospace;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .main-content {
+            padding: 30px 20px;
+        }
+        
+        h1 {
+            font-size: 32px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #1976d2;
+        }
+        
+        .benefit-amount {
+            font-size: 64px;
+            font-weight: bold;
+            color: #4caf50;
+            text-align: center;
+            margin: 30px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .benefit-breakdown {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        
+        .benefit-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            font-size: 18px;
+            border-bottom: 1px solid #bbdefb;
+        }
+        
+        .benefit-item:last-child {
+            border-bottom: none;
+        }
+        
+        .check {
+            color: #4caf50;
+            font-weight: bold;
+        }
+        
+        .cta-button {
+            display: block;
+            background: #4caf50;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(76,175,80,0.3);
+        }
+        
+        .cta-button:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(76,175,80,0.4);
+        }
+        
+        .urgency-notice {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .urgency-notice h3 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        
+        .status-bar {
+            background: #f5f5f5;
+            padding: 20px;
+            margin: 30px -20px;
+            text-align: center;
+        }
+        
+        .status-text {
+            font-size: 20px;
+            color: #d32f2f;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .progress-bar {
+            background: #e0e0e0;
+            height: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .progress-fill {
+            background: #d32f2f;
+            height: 100%;
+            width: 85%;
+            transition: width 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(
+                45deg,
+                transparent 25%,
+                rgba(255,255,255,0.2) 25%,
+                rgba(255,255,255,0.2) 50%,
+                transparent 50%,
+                transparent 75%,
+                rgba(255,255,255,0.2) 75%
+            );
+            background-size: 30px 30px;
+            animation: progress-animation 1s linear infinite;
+        }
+        
+        @keyframes progress-animation {
+            0% { background-position: 0 0; }
+            100% { background-position: 30px 0; }
+        }
+        
+        .disclaimer {
+            font-size: 12px;
+            color: #666;
+            text-align: center;
+            padding: 20px;
+            line-height: 1.5;
+        }
+        
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 28px;
+            }
+            
+            .benefit-amount {
+                font-size: 48px;
+            }
+            
+            .timer {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="warning-header">
+        ⚠️ GOVERNMENT DEADLINE: Unclaimed Benefits Will Be Forfeited
+    </div>
+    
+    <div class="container">
+        <div class="timer-section">
+            <div class="timer-label">Time Remaining to Claim Your Benefits:</div>
+            <div class="timer" id="countdown">47:59:43</div>
+        </div>
+        
+        <div class="main-content">
+            <h1>FINAL NOTICE: You Have Unclaimed Health Benefits Worth</h1>
+            
+            <div class="benefit-amount">$6,000/Year</div>
+            
+            <div class="benefit-breakdown">
+                <h3 style="margin-bottom: 15px;">Your Available Benefits Include:</h3>
+                <div class="benefit-item">
+                    <span><span class="check">✓</span> Monthly Health Allowance</span>
+                    <strong>$400</strong>
+                </div>
+                <div class="benefit-item">
+                    <span><span class="check">✓</span> Prescription Coverage</span>
+                    <strong>$125</strong>
+                </div>
+                <div class="benefit-item">
+                    <span><span class="check">✓</span> Dental & Vision</span>
+                    <strong>$75</strong>
+                </div>
+                <div class="benefit-item" style="font-weight: bold; color: #1976d2;">
+                    <span>TOTAL Monthly Benefits:</span>
+                    <span>$500</span>
+                </div>
+            </div>
+            
+            <div class="urgency-notice">
+                <h3>⏰ IMPORTANT DEADLINE NOTICE</h3>
+                <p>The enrollment period for 2025 benefits closes in 48 hours. 
+                If you don't claim now, you'll have to wait until next year.</p>
+            </div>
+            
+            <a href="https://hpkpn.ttrk.io/click" class="cta-button">
+                CLAIM MY $500/MONTH NOW →
+            </a>
+            
+            <div class="status-bar">
+                <div class="status-text">85% of Available Funds Already Claimed</div>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+            </div>
+            
+            <p style="text-align: center; font-size: 18px; margin: 20px 0;">
+                <strong>2,847 people</strong> claimed their benefits in the last hour
+            </p>
+            
+            <a href="https://healthcarepronto.com/" class="cta-button" style="background: #ff9800;">
+                CHECK MY ELIGIBILITY →
+            </a>
+        </div>
+        
+        <div class="disclaimer">
+            This is an advertisement and not an actual news article. This website is not affiliated 
+            with any government health program. Actual benefit amounts vary based on eligibility.
+        </div>
+    </div>
+    
+    <script>
+        // Countdown timer
+        function updateCountdown() {
+            const now = new Date();
+            const deadline = new Date(now);
+            deadline.setHours(deadline.getHours() + 48);
+            
+            const timeLeft = deadline - now;
+            const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+            
+            document.getElementById('countdown').textContent = 
+                `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+        
+        // Track clicks
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (this.href.includes('healthcarepronto.com')) return;
+                e.preventDefault();
+                window.location.href = 'https://hpkpn.ttrk.io/click';
+            });
+        });
+    </script>
+</body>
+</html>
