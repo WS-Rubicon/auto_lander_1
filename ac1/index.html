@@ -106,7 +106,7 @@
         .progress-fill {
             height: 100%;
             background: #4caf50;
-            width: 25%;
+            width: 0%; /* Start at 0% */
             transition: width 0.5s ease;
         }
         
@@ -228,62 +228,39 @@
                 <div class="progress-fill" id="progress"></div>
             </div>
             
-            <!-- Question 1 -->
             <div class="question-container active" id="q1">
                 <h2 class="question">What's your current health coverage situation?</h2>
                 <div class="answer-options">
-                    <button class="answer-btn" onclick="nextQuestion(1, 'high')">
-                        😟 No coverage / Too expensive
-                    </button>
-                    <button class="answer-btn" onclick="nextQuestion(1, 'medium')">
-                        😐 Have coverage but struggling with costs
-                    </button>
-                    <button class="answer-btn" onclick="nextQuestion(1, 'low')">
-                        😊 Happy with current coverage
-                    </button>
+                    <button class="answer-btn" onclick="nextQuestion(1)">No coverage / Too expensive</button>
+                    <button class="answer-btn" onclick="nextQuestion(1)">Have coverage but struggling with costs</button>
+                    <button class="answer-btn" onclick="nextQuestion(1)">Happy with current coverage</button>
                 </div>
             </div>
             
-            <!-- Question 2 -->
             <div class="question-container" id="q2">
                 <h2 class="question">How much do you spend on health costs monthly?</h2>
                 <div class="answer-options">
-                    <button class="answer-btn" onclick="nextQuestion(2, 'high')">
-                        💸 Over $300/month
-                    </button>
-                    <button class="answer-btn" onclick="nextQuestion(2, 'medium')">
-                        💵 $100-300/month
-                    </button>
-                    <button class="answer-btn" onclick="nextQuestion(2, 'low')">
-                        💰 Under $100/month
-                    </button>
+                    <button class="answer-btn" onclick="nextQuestion(2)">Over $300/month</button>
+                    <button class="answer-btn" onclick="nextQuestion(2)">$100-300/month</button>
+                    <button class="answer-btn" onclick="nextQuestion(2)">Under $100/month</button>
                 </div>
             </div>
             
-            <!-- Question 3 -->
             <div class="question-container" id="q3">
                 <h2 class="question">Do you have any ongoing health needs?</h2>
                 <div class="answer-options">
-                    <button class="answer-btn" onclick="showResults()">
-                        💊 Yes, regular medications/visits
-                    </button>
-                    <button class="answer-btn" onclick="showResults()">
-                        🏥 Occasional doctor visits
-                    </button>
-                    <button class="answer-btn" onclick="showResults()">
-                        ✅ Rarely need medical care
-                    </button>
+                    <button class="answer-btn" onclick="nextQuestion(3)">Yes, regular medications/visits</button>
+                    <button class="answer-btn" onclick="nextQuestion(3)">Occasional doctor visits</button>
+                    <button class="answer-btn" onclick="nextQuestion(3)">Rarely need medical care</button>
                 </div>
             </div>
             
-            <!-- Calculating Screen -->
             <div class="calculating-screen" id="calculating">
                 <div class="spinner"></div>
                 <h2 style="margin-bottom: 15px;">Calculating Your Benefits...</h2>
                 <p style="color: #666;">Checking 2025 eligibility requirements</p>
             </div>
             
-            <!-- Results Screen -->
             <div class="result-screen" id="results">
                 <h2 style="color: #4caf50; margin-bottom: 10px;">🎉 Great News!</h2>
                 <p style="font-size: 20px; margin-bottom: 20px;">You likely qualify for:</p>
@@ -311,7 +288,7 @@
                     <strong>⚠️ Important:</strong> Benefits must be claimed before enrollment closes
                 </p>
                 
-                <a href="https://hpkpn.ttrk.io/click" class="cta-button">
+                <a href="https://hpkpn.ttrk.io/click" class="cta-button" id="cta-link">
                     CLAIM YOUR $500/MONTH →
                 </a>
                 
@@ -334,53 +311,55 @@
     </div>
     
     <script>
-        let currentQuestion = 1;
-        
-        function nextQuestion(qNum, answer) {
-            // Hide current question
+        const totalQuestions = 3;
+
+        function nextQuestion(qNum) {
             document.getElementById('q' + qNum).classList.remove('active');
+
+            const progress = (qNum / totalQuestions) * 100;
+            document.getElementById('progress').style.width = progress + '%';
             
-            // Update progress
-            currentQuestion++;
-            document.getElementById('progress').style.width = (currentQuestion * 25) + '%';
-            
-            // Show next question
-            if (qNum < 3) {
+            if (qNum === totalQuestions) {
+                showResults();
+            } else {
                 setTimeout(() => {
                     document.getElementById('q' + (qNum + 1)).classList.add('active');
                 }, 300);
             }
         }
         
-        function showResults() {
-            // Hide last question
-            document.getElementById('q3').classList.remove('active');
-            
-            // Show calculating screen
+        function showCalculatingAndResults() {
+             // Show calculating screen
             document.getElementById('calculating').style.display = 'block';
-            
-            // Update progress to 100%
-            document.getElementById('progress').style.width = '100%';
-            
-            // After delay, show results
+
             setTimeout(() => {
                 document.getElementById('calculating').style.display = 'none';
                 document.getElementById('results').style.display = 'block';
                 
-                // After showing results, wait 3 seconds then redirect
+                // **THIS IS THE FIX**
+                // Get existing URL params (like ?clickid=xyz)
+                const urlParams = window.location.search;
+                // Create the final redirect URL with the params
+                const redirectUrl = 'https://hpkpn.ttrk.io/click' + urlParams;
+
+                // Also update the CTA button's link
+                document.getElementById('cta-link').href = redirectUrl;
+
+                // Redirect after a few seconds
                 setTimeout(() => {
-                    window.location.href = 'https://hpkpn.ttrk.io/click';
+                    window.location.href = redirectUrl;
                 }, 3000);
             }, 2500);
         }
-        
-        // Track all clicks on links
-        document.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', function(e) {
-                if (this.href.includes('hpkpn.ttrk.io')) return;
-                e.preventDefault();
-                window.location.href = 'https://hpkpn.ttrk.io/click';
-            });
+
+        // Renamed this function to be more accurate
+        function showResults() {
+            showCalculatingAndResults();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('progress').style.width = '0%';
+            document.getElementById('q1').classList.add('active');
         });
     </script>
 </body>
