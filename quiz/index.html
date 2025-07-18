@@ -352,62 +352,54 @@
         const totalQuestions = 4;
 
         function handleAnswer(currentQ, answerValue) {
-            // Add to score
             if (answerValue === 'high') score += 3;
             else if (answerValue === 'medium') score += 2;
             else score += 1;
             
-            // Update progress bar
             const progress = (currentQ / totalQuestions) * 100;
             document.getElementById('progress').style.width = progress + '%';
 
-            // Hide current question
             document.getElementById('q' + currentQ).classList.remove('active');
 
             if (currentQ < totalQuestions) {
-                // Show next question
                 setTimeout(() => {
                     document.getElementById('q' + (currentQ + 1)).classList.add('active');
                 }, 300);
             } else {
-                // If it's the last question, show the results
                 showResults();
             }
         }
         
         function showResults() {
-            // Hide the main question container
             document.getElementById('quiz-content').style.display = 'none';
-            
-            // Show calculating animation
             document.getElementById('calculating').style.display = 'block';
             
-            // Calculate savings based on score
             let savings;
             if (score >= 10) {
-                savings = Math.floor(800 + Math.random() * 400); // $800-1200
+                savings = Math.floor(800 + Math.random() * 400);
             } else if (score >= 7) {
-                savings = Math.floor(500 + Math.random() * 300); // $500-800
+                savings = Math.floor(500 + Math.random() * 300);
             } else {
-                savings = Math.floor(300 + Math.random() * 200); // $300-500
+                savings = Math.floor(300 + Math.random() * 200);
             }
             
-            // Show results after a delay
             setTimeout(() => {
                 document.getElementById('calculating').style.display = 'none';
                 document.getElementById('savings-amount').textContent = '$' + savings + '/year';
-                
-                // **THIS IS THE FIX**: Make the results container visible
                 document.getElementById('results').style.display = 'block';
 
-                // Optional: Redirect after a few seconds
-                 setTimeout(() => {
-                    window.location.href = 'https://hpkpn.ttrk.io/click';
+                // Get existing URL params (like ?clickid=xyz)
+                const urlParams = window.location.search; 
+                // Create the final redirect URL with the params
+                const redirectUrl = 'https://hpkpn.ttrk.io/click' + urlParams;
+
+                // Redirect after 3 seconds
+                setTimeout(() => {
+                    window.location.href = redirectUrl;
                 }, 3000);
             }, 2500);
         }
 
-        // Make the first question visible on page load
         document.addEventListener('DOMContentLoaded', (event) => {
             document.getElementById('q1').classList.add('active');
         });
