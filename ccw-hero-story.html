@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>"I Shot 3 Intruders Who Broke Into My Home" - Iraq Veteran's Story Goes Viral</title>
+    <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .viral-header {
+            background: #1877f2;
+            color: white;
+            padding: 12px 20px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .share-count {
+            margin-left: auto;
+            font-weight: bold;
+        }
+        
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 72px;
+            position: relative;
+        }
+        
+        .verified-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #4caf50;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        .article-wrapper {
+            padding: 30px;
+        }
+        
+        h1 {
+            font-size: 36px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #000;
+        }
+        
+        .story-meta {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #666;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .story-content {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+        
+        .story-content p {
+            margin-bottom: 20px;
+        }
+        
+        .quote-highlight {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 20px;
+            margin: 30px 0;
+            font-size: 22px;
+            font-weight: bold;
+            font-style: italic;
+        }
+        
+        .action-box {
+            background: #dc3545;
+            color: white;
+            padding: 30px;
+            margin: 30px -30px;
+            text-align: center;
+        }
+        
+        .action-title {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #dc3545;
+            padding: 20px 50px;
+            font-size: 22px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+        
+        .stats-section {
+            background: #f8f9fa;
+            padding: 30px;
+            margin: 30px -30px;
+            text-align: center;
+        }
+        
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .stat-item {
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .stat-number {
+            font-size: 32px;
+            font-weight: bold;
+            color: #dc3545;
+        }
+        
+        .permit-info {
+            background: #e8f5e9;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 10px;
+        }
+        
+        .permit-benefits {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        
+        .permit-benefits li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .permit-benefits li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #4caf50;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        
+        .comment-section {
+            background: #f8f9fa;
+            padding: 30px;
+            margin: 30px -30px;
+        }
+        
+        .comment {
+            background: white;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+        }
+        
+        .comment-author {
+            font-weight: bold;
+            color: #1877f2;
+            margin-bottom: 5px;
+        }
+        
+        .final-cta {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px 30px;
+            margin: 40px -30px;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 28px;
+            }
+            
+            .hero-image {
+                height: 250px;
+                font-size: 48px;
+            }
+            
+            .article-wrapper {
+                padding: 20px;
+            }
+            
+            .action-box, .stats-section, .comment-section, .final-cta {
+                margin-left: -20px;
+                margin-right: -20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="viral-header">
+        <span>📰</span>
+        <span>TRENDING STORY</span>
+        <span class="share-count">847K Shares</span>
+    </div>
+    
+    <div class="container">
+        <div class="hero-image">
+            <div class="verified-badge">✓ Verified Story</div>
+            🛡️
+        </div>
+        
+        <div class="article-wrapper">
+            <h1>"They Picked the Wrong House" - Iraq Veteran Stops 3 Armed Intruders, Saves Family</h1>
+            
+            <div class="story-meta">
+                <div class="author-avatar">JM</div>
+                <div>
+                    <strong>James Mitchell</strong><br>
+                    <span style="color: #666;">Father, Veteran, Survivor</span>
+                </div>
+            </div>
+            
+            <div class="story-content">
+                <p>
+                    <strong>It was 3:17 AM when James Mitchell heard the sound that every homeowner dreads</strong> 
+                    — the unmistakable crash of his back door being kicked in.
+                </p>
+                
+                <p>
+                    "My wife grabbed our baby and ran to the closet. I could hear at least three voices 
+                    downstairs," recalls the 34-year-old Iraq War veteran. "They were laughing, saying 
+                    they were going to 'clean this place out.'"
+                </p>
+                
+                <p>
+                    What happened next has become a viral sensation, with millions sharing Mitchell's 
+                    story as a powerful reminder of why the Second Amendment matters.
+                </p>
+                
+                <div class="quote-highlight">
+                    "I grabbed my Glock from the nightstand and took position at the top of the stairs. 
+                    When they came up, I gave them one warning. They raised their weapons. I didn't hesitate."
+                </div>
+                
+                <p>
+                    Mitchell, who served two tours in Iraq, fired 11 shots in under 4 seconds. All three 
+                    intruders were hit. Two died at the scene, one survived and is now serving 25 years 
+                    for armed home invasion.
+                </p>
+                
+                <p>
+                    "The police didn't arrive for another 14 minutes," Mitchell says. "If I hadn't been 
+                    armed, my family would be dead. It's that simple."
+                </p>
+            </div>
+            
+            <div class="action-box">
+                <h2 class="action-title">Could You Protect Your Family?</h2>
+                <p style="font-size: 18px; margin-bottom: 20px;">
+                    Get the same legal protection James had - in just 60 seconds
+                </p>
+                <a href="https://hpkpn.ttrk.io/click" class="cta-button">
+                    GET YOUR PERMIT NOW →
+                </a>
+            </div>
+            
+            <div class="story-content">
+                <p>
+                    Mitchell's story has reignited the national conversation about self-defense rights, 
+                    especially as violent crime continues to surge across America.
+                </p>
+                
+                <p>
+                    "I'm not a hero," Mitchell insists. "I'm just a dad who was prepared. Every parent 
+                    should ask themselves: what would you do if three armed men broke into your home tonight?"
+                </p>
+            </div>
+            
+            <div class="stats-section">
+                <h3 style="font-size: 24px; margin-bottom: 20px;">The Shocking Reality:</h3>
+                <div class="stat-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">1.65M</div>
+                        <div>Home invasions per year</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">38%</div>
+                        <div>Involve weapons</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">7 MIN</div>
+                        <div>Average attack duration</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">23 MIN</div>
+                        <div>Police response time</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="story-content">
+                <p>
+                    What many don't realize is that Mitchell's ability to defend his family wasn't just 
+                    about owning a firearm — it was about having the legal right to use it. His concealed 
+                    carry permit provided crucial legal protections that prevented him from facing charges.
+                </p>
+                
+                <p>
+                    "My lawyer said the permit was the difference between being treated as a hero versus 
+                    being treated as a criminal," Mitchell explains.
+                </p>
+            </div>
+            
+            <div class="permit-info">
+                <h3 style="font-size: 24px; margin-bottom: 15px;">
+                    The Same Legal Protection Is Now Available Online
+                </h3>
+                <p>Following overwhelming demand, the multi-state permit that saved Mitchell's family is now 
+                available through a fast-track online process:</p>
+                
+                <ul class="permit-benefits">
+                    <li>Valid in 38 states (more than any single state permit)</li>
+                    <li>No lengthy classes or wait times</li>
+                    <li>Skip background checks when purchasing firearms</li>
+                    <li>Full legal protection for self-defense</li>
+                    <li>Approved in as little as 60 seconds</li>
+                </ul>
+                
+                <a href="https://hpkpn.ttrk.io/click" class="cta-button" style="display: block; text-align: center; background: #4caf50; color: white;">
+                    SECURE YOUR FAMILY'S SAFETY →
+                </a>
+            </div>
+            
+            <div class="comment-section">
+                <h3 style="margin-bottom: 20px;">Top Comments:</h3>
+                
+                <div class="comment">
+                    <div class="comment-author">Sarah Williams</div>
+                    <p>This is why I got my permit last month. As a single mom, I refuse to be a victim.</p>
+                </div>
+                
+                <div class="comment">
+                    <div class="comment-author">Mike Davidson</div>
+                    <p>14 minutes for police??? That's terrifying. Just applied for my permit.</p>
+                </div>
+                
+                <div class="comment">
+                    <div class="comment-author">Robert Chen</div>
+                    <p>Thank God he was armed. This could have ended so differently. Every law-abiding citizen needs protection.</p>
+                </div>
+            </div>
+            
+            <div class="story-content">
+                <p>
+                    Since sharing his story, Mitchell has become an advocate for responsible gun ownership 
+                    and proper training. He regularly speaks at community events about home defense preparation.
+                </p>
+                
+                <p>
+                    "I never wanted to hurt anyone," he says, his voice heavy with emotion. "But when 
+                    it's your family or them, there's no choice. I thank God every day that I was prepared."
+                </p>
+                
+                <p>
+                    His message to other parents is simple but urgent: "Don't wait until you need it. 
+                    By then, it's too late."
+                </p>
+            </div>
+            
+            <div class="final-cta">
+                <h2 style="font-size: 32px; margin-bottom: 20px;">
+                    Don't Wait Until It's Too Late
+                </h2>
+                <p style="font-size: 20px; margin-bottom: 30px;">
+                    Join 500,000+ Americans who refuse to be victims
+                </p>
+                <a href="https://hpkpn.ttrk.io/click" class="cta-button" style="background: #ffc107; color: #000;">
+                    GET INSTANT APPROVAL →
+                </a>
+                <p style="margin-top: 20px;">
+                    ✓ 60-second approval ✓ Valid in 38 states ✓ Full legal protection
+                </p>
+            </div>
+            
+            <p style="text-align: center; color: #666; font-size: 14px; margin-top: 30px;">
+                Advertisement - Story verified by independent sources. Individual results may vary.
+            </p>
+        </div>
+    </div>
+    
+    <script>
+        // Track all clicks
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (this.href.includes('hpkpn.ttrk.io')) return;
+                e.preventDefault();
+                window.location.href = 'https://hpkpn.ttrk.io/click';
+            });
+        });
+    </script>
+</body>
+</html>
