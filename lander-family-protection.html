@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protect Your Family & Save $500+ on Car Insurance</title>
+    <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #e3f2fd 0%, #fff 100%);
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+        
+        .header {
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 200"><path fill="%2387CEEB" d="M0,100 C200,50 400,150 600,100 C800,50 1000,150 1200,100 L1200,200 L0,200 Z"/></svg>') no-repeat center bottom;
+            background-size: cover;
+            padding: 40px 20px 100px;
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            font-size: clamp(32px, 5vw, 48px);
+            color: #1976d2;
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
+        
+        .family-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+        
+        .story-box {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin: -50px auto 40px;
+            position: relative;
+            max-width: 700px;
+        }
+        
+        .quote {
+            font-style: italic;
+            font-size: 20px;
+            color: #555;
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 40px;
+        }
+        
+        .quote::before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            top: -10px;
+            font-size: 60px;
+            color: #1976d2;
+            opacity: 0.3;
+        }
+        
+        .savings-calculator {
+            background: #fff3cd;
+            border: 2px dashed #ffc107;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .savings-amount {
+            font-size: 48px;
+            color: #28a745;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        
+        .family-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .benefit-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .benefit-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 20px 50px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 22px;
+            font-weight: bold;
+            margin: 20px auto;
+            box-shadow: 0 5px 20px rgba(40,167,69,0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(40,167,69,0.4);
+        }
+        
+        .trust-message {
+            background: #e8f5e9;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .testimonial-section {
+            margin: 60px 0;
+        }
+        
+        .testimonial {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #1976d2;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-right: 15px;
+        }
+        
+        .stars {
+            color: #ffc107;
+            font-size: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .story-box {
+                padding: 30px 20px;
+                margin: -30px 20px 30px;
+            }
+            
+            .savings-amount {
+                font-size: 36px;
+            }
+            
+            .benefit-card {
+                padding: 20px;
+            }
+            
+            .cta-button {
+                display: block;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="family-icon">👨‍👩‍👧‍👦</div>
+            <h1>Your Family Deserves Better Protection at a Fair Price</h1>
+            <p style="font-size: 20px; color: #555; margin-top: 10px;">
+                Join 50,000+ families who switched and saved
+            </p>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="story-box">
+            <p class="quote">
+                As a parent, I always put my family first. But I never realized how much 
+                money I was wasting on car insurance until I compared rates. That extra 
+                $500/year now goes to my kids' college fund.
+            </p>
+            <p style="text-align: right; color: #666;">— Sarah M., Mother of Two</p>
+        </div>
+        
+        <div class="savings-calculator">
+            <h2 style="color: #856404; margin-bottom: 20px;">
+                What Could Your Family Do With An Extra...
+            </h2>
+            <div class="savings-amount">$527/Year?</div>
+            <p style="font-size: 18px; color: #856404;">
+                That's the average families save by comparing rates
+            </p>
+        </div>
+        
+        <h2 style="text-align: center; font-size: 36px; margin: 60px 0 40px; color: #1976d2;">
+            Why Families Trust Us
+        </h2>
+        
+        <div class="family-benefits">
+            <div class="benefit-card">
+                <div class="benefit-icon">🛡️</div>
+                <h3 style="margin-bottom: 10px;">Same Great Coverage</h3>
+                <p>Keep your protection level while paying less</p>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon">⏱️</div>
+                <h3 style="margin-bottom: 10px;">2-Minute Process</h3>
+                <p>Quick comparison while kids nap</p>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon">💰</div>
+                <h3 style="margin-bottom: 10px;">Guaranteed Savings</h3>
+                <p>More money for what matters most</p>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon">🤝</div>
+                <h3 style="margin-bottom: 10px;">Trusted Insurers</h3>
+                <p>Only reputable companies you know</p>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin: 60px 0;">
+            <a href="https://hpkpn.ttrk.io/click" class="cta-button">
+                Start Saving for Your Family →
+            </a>
+            <p style="margin-top: 15px; color: #666;">
+                Free • No Obligation • Cancel Anytime
+            </p>
+        </div>
+        
+        <div class="trust-message">
+            <h3 style="font-size: 24px; margin-bottom: 15px;">🌟 Our Promise to Your Family</h3>
+            <p style="font-size: 18px;">
+                We'll never share your information. We'll never spam you. 
+                We'll simply show you how much you could save. That's it.
+            </p>
+        </div>
+        
+        <div class="testimonial-section">
+            <h2 style="text-align: center; font-size: 32px; margin-bottom: 40px;">
+                Real Families, Real Savings
+            </h2>
+            
+            <div class="testimonial">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">JR</div>
+                    <div>
+                        <strong>The Rodriguez Family</strong><br>
+                        <span class="stars">★★★★★</span>
+                    </div>
+                </div>
+                <p>"With three teenage drivers, our insurance was killing us. We saved $1,200/year! 
+                That's a family vacation right there."</p>
+            </div>
+            
+            <div class="testimonial">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">MW</div>
+                    <div>
+                        <strong>Mike & Lisa Williams</strong><br>
+                        <span class="stars">★★★★★</span>
+                    </div>
+                </div>
+                <p>"So easy! Compared rates during lunch break. Now saving $43/month. 
+                Why didn't we do this sooner?"</p>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin: 60px 0;">
+            <p style="font-size: 24px; color: #1976d2; margin-bottom: 20px;">
+                Your family's financial future matters
+            </p>
+            <a href="https://hpkpn.ttrk.io/click" class="cta-button">
+                See Your Savings Now →
+            </a>
+        </div>
+        
+        <p style="text-align: center; color: #999; font-size: 14px; margin-top: 60px;">
+            © 2025 Family Insurance Savings. We help families keep more of their hard-earned money.
+        </p>
+    </div>
+    
+    <script>
+        // Track all clicks
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (this.href.includes('hpkpn.ttrk.io')) return;
+                e.preventDefault();
+                window.location.href = 'https://hpkpn.ttrk.io/click';
+            });
+        });
+    </script>
+</body>
+</html>

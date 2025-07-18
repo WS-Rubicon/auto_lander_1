@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WARNING: You're Overpaying By $1,847/Year</title>
+    <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial Black', sans-serif;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+        
+        .warning-bar {
+            background: #ff0000;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .headline {
+            font-size: clamp(36px, 8vw, 72px);
+            line-height: 1.1;
+            margin: 40px 0;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        
+        .highlight {
+            color: #ff0000;
+            text-decoration: underline;
+        }
+        
+        .shock-box {
+            background: #1a1a1a;
+            border: 3px solid #ff0000;
+            padding: 40px;
+            margin: 40px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .shock-box::before {
+            content: "EXPOSED";
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ff0000;
+            padding: 5px 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .money-lost {
+            font-size: 64px;
+            color: #ff0000;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        
+        .victim-count {
+            background: #ffff00;
+            color: #000;
+            padding: 30px;
+            margin: 40px 0;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            transform: rotate(-2deg);
+        }
+        
+        .proof-section {
+            background: #1a1a1a;
+            padding: 40px;
+            margin: 40px 0;
+        }
+        
+        .proof-item {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            font-size: 20px;
+        }
+        
+        .proof-item::before {
+            content: "❌";
+            font-size: 30px;
+            margin-right: 20px;
+        }
+        
+        .cta-button {
+            display: block;
+            background: #00ff00;
+            color: #000;
+            text-decoration: none;
+            padding: 30px;
+            font-size: 32px;
+            font-weight: bold;
+            text-align: center;
+            margin: 40px 0;
+            text-transform: uppercase;
+            animation: shake 0.5s infinite;
+            cursor: pointer;
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+        
+        .timer {
+            text-align: center;
+            font-size: 24px;
+            margin: 20px 0;
+            color: #ff0000;
+        }
+        
+        .testimonial {
+            background: #222;
+            padding: 30px;
+            margin: 30px 0;
+            border-left: 5px solid #00ff00;
+        }
+        
+        .testimonial-amount {
+            font-size: 36px;
+            color: #00ff00;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .headline {
+                font-size: 32px;
+            }
+            
+            .money-lost {
+                font-size: 48px;
+            }
+            
+            .cta-button {
+                font-size: 24px;
+                padding: 20px;
+            }
+            
+            .proof-item {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="warning-bar">
+        ⚠️ WARNING: Insurance Companies Don't Want You To See This Page ⚠️
+    </div>
+    
+    <div class="container">
+        <h1 class="headline">
+            Your Insurance Company Is <span class="highlight">STEALING</span> 
+            $1,847 From You Every Year
+        </h1>
+        
+        <div class="shock-box">
+            <p style="font-size: 24px; margin-bottom: 20px;">Right Now You're Losing:</p>
+            <div class="money-lost">$153.91</div>
+            <p style="font-size: 20px;">EVERY SINGLE MONTH</p>
+        </div>
+        
+        <div class="victim-count">
+            🚨 2,847 Drivers Discovered They Were Overpaying TODAY 🚨
+        </div>
+        
+        <div class="proof-section">
+            <h2 style="font-size: 36px; margin-bottom: 30px; text-align: center;">
+                THE INSURANCE SCAM EXPOSED:
+            </h2>
+            
+            <div class="proof-item">
+                Your "loyalty" is costing you thousands
+            </div>
+            <div class="proof-item">
+                They raise your rates 3-7% every year (hoping you won't notice)
+            </div>
+            <div class="proof-item">
+                New customers get 50% discounts while you pay FULL PRICE
+            </div>
+            <div class="proof-item">
+                They're betting you're too lazy to check
+            </div>
+        </div>
+        
+        <div class="timer">
+            ⏰ This Loophole Closes In: <span id="timer">14:59</span> ⏰
+        </div>
+        
+        <a href="https://hpkpn.ttrk.io/click" class="cta-button">
+            EXPOSE YOUR REAL RATE NOW →
+        </a>
+        
+        <div class="testimonial">
+            <p>"I was FURIOUS when I found out I'd been overpaying by</p>
+            <p class="testimonial-amount">$2,196 per year</p>
+            <p>for the EXACT SAME COVERAGE! Switched in 2 minutes." - Mark T., Las Vegas</p>
+        </div>
+        
+        <div class="testimonial">
+            <p>"My insurance company was charging me</p>
+            <p class="testimonial-amount">$289/month</p>
+            <p>Now I pay $94/month for BETTER coverage. I feel so stupid for waiting." - Jennifer S.</p>
+        </div>
+        
+        <a href="https://hpkpn.ttrk.io/click" class="cta-button">
+            SEE WHAT THEY'RE HIDING FROM YOU →
+        </a>
+        
+        <p style="text-align: center; margin-top: 60px; opacity: 0.7; font-size: 14px;">
+            This free tool exposes what insurance companies charge new customers vs. loyal customers like you.
+            The difference will shock you. Use of this tool may result in significant savings.
+        </p>
+    </div>
+    
+    <script>
+        // Countdown timer
+        let minutes = 14;
+        let seconds = 59;
+        
+        function updateTimer() {
+            if (seconds === 0) {
+                if (minutes === 0) {
+                    minutes = 14;
+                    seconds = 59;
+                } else {
+                    minutes--;
+                    seconds = 59;
+                }
+            } else {
+                seconds--;
+            }
+            
+            document.getElementById('timer').textContent = 
+                `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+        
+        setInterval(updateTimer, 1000);
+        
+        // Track all clicks
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (this.href.includes('hpkpn.ttrk.io')) return;
+                e.preventDefault();
+                window.location.href = 'https://hpkpn.ttrk.io/click';
+            });
+        });
+    </script>
+</body>
+</html>

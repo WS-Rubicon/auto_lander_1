@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Am I Overpaying? Take the 30-Second Insurance Quiz</title>
+    <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .quiz-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .quiz-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(102,126,234,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .quiz-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: clamp(28px, 5vw, 36px);
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .quiz-subtitle {
+            font-size: 18px;
+            color: #666;
+        }
+        
+        .progress-bar {
+            background: #e0e0e0;
+            height: 8px;
+            border-radius: 4px;
+            margin: 30px 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            height: 100%;
+            width: 0%;
+            transition: width 0.5s ease;
+            border-radius: 4px;
+        }
+        
+        .question-container {
+            margin: 40px 0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .question {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #333;
+        }
+        
+        .answer-grid {
+            display: grid;
+            gap: 15px;
+        }
+        
+        .answer-button {
+            background: #f8f9fa;
+            border: 3px solid transparent;
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .answer-button:hover {
+            border-color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102,126,234,0.3);
+        }
+        
+        .answer-button.selected {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-color: transparent;
+        }
+        
+        .calculating {
+            text-align: center;
+            display: none;
+        }
+        
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+            margin: 30px auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .result-container {
+            display: none;
+            text-align: center;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .result-status {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .overpaying { color: #dc3545; }
+        .fair { color: #ffc107; }
+        .good { color: #28a745; }
+        
+        .savings-potential {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+        
+        .savings-amount {
+            font-size: 48px;
+            font-weight: bold;
+            color: #28a745;
+            margin: 10px 0;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 20px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(40,167,69,0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(40,167,69,0.4);
+        }
+        
+        .trust-section {
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 1px solid #e0e0e0;
+            text-align: center;
+        }
+        
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #666;
+        }
+        
+        @media (max-width: 768px) {
+            .quiz-card {
+                padding: 30px 20px;
+            }
+            
+            .question {
+                font-size: 20px;
+            }
+            
+            .answer-button {
+                font-size: 16px;
+                padding: 15px;
+            }
+            
+            .savings-amount {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="quiz-card">
+            <div class="quiz-header">
+                <div class="quiz-icon">🤔</div>
+                <h1>The 30-Second Insurance Reality Check</h1>
+                <p class="quiz-subtitle">93% of drivers are overpaying. Are you?</p>
+            </div>
+            
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress"></div>
+            </div>
+            
+            <div id="quiz-content">
+                <!-- Question 1 -->
+                <div class="question-container" id="q1">
+                    <div class="question">How long have you been with your current insurer?</div>
+                    <div class="answer-grid">
+                        <button class="answer-button" onclick="nextQuestion(1, 'high')">
+                            More than 3 years 😴
+                        </button>
+                        <button class="answer-button" onclick="nextQuestion(1, 'medium')">
+                            1-3 years 🤷
+                        </button>
+                        <button class="answer-button" onclick="nextQuestion(1, 'low')">
+                            Less than 1 year 🆕
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Question 2 -->
+                <div class="question-container" id="q2" style="display: none;">
+                    <div class="question">When did you last compare insurance rates?</div>
+                    <div class="answer-grid">
+                        <button class="answer-button" onclick="nextQuestion(2, 'high')">
+                            Never / Can't remember 🙈
+                        </button>
+                        <button class="answer-button" onclick="nextQuestion(2, 'medium')">
+                            Over a year ago 📅
+                        </button>
+                        <button class="answer-button" onclick="nextQuestion(2, 'low')">
+                            Within the last year ✅
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Question 3 -->
+                <div class="question-container" id="q3" style="display: none;">
+                    <div class="question">How much do you drive daily?</div>
+                    <div class="answer-grid">
+                        <button class="answer-button" onclick="nextQuestion(3, 'high')">
+                            Less than 25 miles 🚗
+                        </button>
+                        <button class="answer-button" onclick="nextQuestion(3, 'medium')">
+                            25-50 miles 🛣️
+                        </button>
+                        <button class="answer-button" onclick="nextQuestion(3, 'low')">
+                            More than 50 miles 🏎️
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Question 4 -->
+                <div class="question-container" id="q4" style="display: none;">
+                    <div class="question">Any tickets or accidents in the last 3 years?</div>
+                    <div class="answer-grid">
+                        <button class="answer-button" onclick="showResults('high')">
+                            Nope, clean record! 🏆
+                        </button>
+                        <button class="answer-button" onclick="showResults('medium')">
+                            One minor incident 😅
+                        </button>
+                        <button class="answer-button" onclick="showResults('low')">
+                            Multiple incidents 😬
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="calculating" id="calculating">
+                <div class="spinner"></div>
+                <h2>Analyzing your profile...</h2>
+                <p style="margin-top: 20px; color: #666;">Comparing rates from 23 insurers</p>
+            </div>
+            
+            <div class="result-container" id="results">
+                <div class="result-status overpaying">🚨 YOU'RE LIKELY OVERPAYING! 🚨</div>
+                
+                <div class="savings-potential">
+                    <p style="font-size: 20px; margin-bottom: 10px;">Based on your profile, you could save:</p>
+                    <div class="savings-amount" id="savings-amount">$847/year</div>
+                    <p style="font-size: 16px; color: #666;">That's $70.58 every month!</p>
+                </div>
+                
+                <p style="font-size: 18px; margin: 30px 0; line-height: 1.6;">
+                    Good news! Drivers with your profile are getting massive discounts 
+                    from insurers competing for safe, low-mileage drivers.
+                </p>
+                
+                <a href="https://hpkpn.ttrk.io/click" class="cta-button">
+                    See Your Actual Quotes →
+                </a>
+                
+                <p style="color: #666; margin-top: 15px;">
+                    Takes 2 minutes • No SSN required • Compare 20+ insurers
+                </p>
+            </div>
+            
+            <div class="trust-section">
+                <div class="trust-badges">
+                    <div class="trust-badge">
+                        <span style="font-size: 24px;">🔒</span>
+                        <span>Bank-Level Security</span>
+                    </div>
+                    <div class="trust-badge">
+                        <span style="font-size: 24px;">⭐</span>
+                        <span>4.8/5 Rating</span>
+                    </div>
+                    <div class="trust-badge">
+                        <span style="font-size: 24px;">👥</span>
+                        <span>2M+ Users</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let score = 0;
+        let questionCount = 0;
+        
+        function nextQuestion(currentQ, answer) {
+            // Add to score
+            if (answer === 'high') score += 3;
+            else if (answer === 'medium') score += 2;
+            else score += 1;
+            
+            questionCount++;
+            
+            // Update progress bar
+            document.getElementById('progress').style.width = (questionCount * 25) + '%';
+            
+            // Hide current question
+            document.getElementById('q' + currentQ).style.display = 'none';
+            
+            // Show next question
+            if (currentQ < 3) {
+                document.getElementById('q' + (currentQ + 1)).style.display = 'block';
+            }
+        }
+        
+        function showResults(lastAnswer) {
+            // Add final answer to score
+            if (lastAnswer === 'high') score += 3;
+            else if (lastAnswer === 'medium') score += 2;
+            else score += 1;
+            
+            // Update progress bar to 100%
+            document.getElementById('progress').style.width = '100%';
+            
+            // Hide last question
+            document.getElementById('q4').style.display = 'none';
+            
+            // Show calculating animation
+            document.getElementById('calculating').style.display = 'block';
+            
+            // Calculate savings based on score
+            let savings;
+            if (score >= 10) {
+                savings = Math.floor(800 + Math.random() * 400); // $800-1200
+            } else if (score >= 7) {
+                savings = Math.floor(500 + Math.random() * 300); // $500-800
+            } else {
+                savings = Math.floor(300 + Math.random() * 200); // $300-500
+            }
+            
+            // Show results after delay
+            setTimeout(() => {
+                document.getElementById('calculating').style.display = 'none';
+                document.getElementById('savings-amount').textContent = '$' + savings + '/year';
+                document.getElementById('results').style.display = 'block';
+            }, 3000);
+        }
+        
+        // Track all clicks
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (this.href.includes('hpkpn.ttrk.io')) return;
+                e.preventDefault();
+                window.location.href = 'https://hpkpn.ttrk.io/click';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BREAKING: Nevada Drivers Must Check Insurance Rates Before July 31st</title>
+    <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Times New Roman', serif;
+            background: #f5f5f5;
+            color: #000;
+            line-height: 1.6;
+        }
+        
+        .breaking-banner {
+            background: #c00;
+            color: white;
+            padding: 12px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            animation: flash 1s ease-in-out infinite;
+        }
+        
+        @keyframes flash {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+        
+        .header {
+            background: white;
+            border-bottom: 3px solid #000;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .newspaper-header {
+            text-align: center;
+            font-size: 48px;
+            font-weight: bold;
+            letter-spacing: -2px;
+        }
+        
+        .date-line {
+            text-align: center;
+            margin: 10px 0;
+            padding: 10px 0;
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            font-size: 14px;
+        }
+        
+        .article {
+            background: white;
+            padding: 40px;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            font-size: clamp(32px, 5vw, 48px);
+            line-height: 1.2;
+            margin-bottom: 20px;
+            font-weight: 900;
+        }
+        
+        .subtitle {
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        
+        .article-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .lead-paragraph {
+            font-size: 20px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+        
+        .article-content p {
+            margin-bottom: 20px;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+        
+        .important-box {
+            background: #fef3c7;
+            border-left: 5px solid #f59e0b;
+            padding: 20px;
+            margin: 30px 0;
+            font-size: 18px;
+        }
+        
+        .data-table {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 30px 0;
+            border: 1px solid #dee2e6;
+        }
+        
+        .data-table h3 {
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .data-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .quote-block {
+            background: #e9ecef;
+            padding: 20px;
+            margin: 30px 0;
+            border-left: 3px solid #495057;
+            font-style: italic;
+            font-size: 18px;
+        }
+        
+        .cta-section {
+            background: #000;
+            color: white;
+            padding: 40px;
+            margin: 40px -40px;
+            text-align: center;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #ffc107;
+            color: #000;
+            padding: 20px 50px;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background: #ffdc07;
+            transform: scale(1.05);
+        }
+        
+        .deadline-warning {
+            background: #dc3545;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 30px 0;
+        }
+        
+        .sidebar-ad {
+            background: #e9ecef;
+            padding: 20px;
+            margin: 30px 0;
+            border: 2px dashed #6c757d;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .article {
+                padding: 20px;
+            }
+            
+            .newspaper-header {
+                font-size: 32px;
+            }
+            
+            h1 {
+                font-size: 28px;
+            }
+            
+            .cta-section {
+                margin: 40px -20px;
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="breaking-banner">
+        BREAKING NEWS: Insurance Rate Changes Affecting Nevada Drivers
+    </div>
+    
+    <div class="header">
+        <div class="container">
+            <div class="newspaper-header">THE DAILY SAVINGS</div>
+            <div class="date-line">
+                <span id="currentDate"></span> | Las Vegas Edition | Finance Section
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="article">
+            <h1>State Insurance Commission Announces Major Rate Restructuring — Drivers Who Don't Compare Could Lose Thousands</h1>
+            
+            <p class="subtitle">
+                New regulations force insurers to compete, creating unprecedented savings opportunities
+            </p>
+            
+            <div class="article-meta">
+                <span>By Financial Desk</span>
+                <span>Updated: 2 hours ago</span>
+            </div>
+            
+            <p class="lead-paragraph">
+                LAS VEGAS — In a move that could save Nevada drivers thousands of dollars annually, 
+                major insurance carriers have been forced to restructure their pricing models following 
+                new state regulations aimed at increasing market competition.
+            </p>
+            
+            <div class="article-content">
+                <p>
+                    The changes, which went into effect earlier this month, require insurance companies 
+                    to offer their most competitive rates to all qualified drivers, effectively ending 
+                    the practice of "price optimization" that has kept loyal customers paying inflated premiums.
+                </p>
+                
+                <div class="important-box">
+                    <strong>CONSUMER ALERT:</strong> Drivers who don't compare rates before the July 31st 
+                    deadline may be locked into their current rates for another full year.
+                </div>
+                
+                <p>
+                    "This is the biggest opportunity for savings we've seen in over a decade," said 
+                    consumer advocate Michael Torres. "Insurance companies are scrambling to retain 
+                    customers, and they're offering discounts we've never seen before."
+                </p>
+                
+                <div class="data-table">
+                    <h3>Average Savings by Driver Profile</h3>
+                    <div class="data-row">
+                        <span>Safe Drivers (No tickets 3+ years)</span>
+                        <span><strong>$847/year</strong></span>
+                    </div>
+                    <div class="data-row">
+                        <span>Low-Mileage Drivers (&lt;50 mi/day)</span>
+                        <span><strong>$923/year</strong></span>
+                    </div>
+                    <div class="data-row">
+                        <span>Multi-Vehicle Households</span>
+                        <span><strong>$1,247/year</strong></span>
+                    </div>
+                    <div class="data-row">
+                        <span>Drivers 50+ Years Old</span>
+                        <span><strong>$1,082/year</strong></span>
+                    </div>
+                </div>
+                
+                <p>
+                    The restructuring comes after a year-long investigation revealed that many insurers 
+                    were charging existing customers significantly more than new customers for identical coverage.
+                </p>
+                
+                <div class="quote-block">
+                    "I was shocked to discover I'd been overpaying by $1,200 a year. The comparison 
+                    tool showed me rates from companies I'd never even heard of. Switched in minutes."
+                    <br><br>
+                    — Jennifer Martinez, Las Vegas resident
+                </div>
+                
+                <p>
+                    Industry analysts predict that drivers who take advantage of the new comparison tools 
+                    could see savings averaging $500-$1,500 annually, with some drivers reporting even 
+                    higher savings.
+                </p>
+                
+                <div class="deadline-warning">
+                    ⚠️ DEADLINE APPROACHING: Drivers must compare rates before July 31st to lock in 2025 savings
+                </div>
+                
+                <p>
+                    The Nevada Department of Insurance has partnered with certified comparison services 
+                    to help drivers quickly identify their best options. The free service takes less than 
+                    two minutes and provides quotes from multiple A-rated insurers.
+                </p>
+                
+                <div class="sidebar-ad">
+                    <h3>Official Rate Comparison Tool</h3>
+                    <p>Compare quotes from 20+ insurers in 60 seconds</p>
+                    <p><strong>Average Time: 2 minutes<br>Average Savings: $549/year</strong></p>
+                </div>
+            </div>
+            
+            <div class="cta-section">
+                <h2 style="font-size: 32px; margin-bottom: 20px;">
+                    Don't Miss The Deadline
+                </h2>
+                <p style="font-size: 20px; margin-bottom: 30px;">
+                    See how much you could save with the official comparison tool
+                </p>
+                <a href="https://hpkpn.ttrk.io/click" class="cta-button">
+                    COMPARE RATES NOW
+                </a>
+                <p style="margin-top: 20px; opacity: 0.8;">
+                    Free Service • No Obligation • 2 Minutes
+                </p>
+            </div>
+            
+            <div class="article-content">
+                <p style="font-size: 14px; color: #666; margin-top: 40px;">
+                    This is a developing story. The Daily Savings will continue to update this article 
+                    as more information becomes available. Drivers are encouraged to take action before 
+                    the July 31st deadline to ensure maximum savings.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Set current date
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('currentDate').textContent = new Date().toLocaleDateString('en-US', options);
+        
+        // Track all clicks
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (this.href.includes('hpkpn.ttrk.io')) return;
+                e.preventDefault();
+                window.location.href = 'https://hpkpn.ttrk.io/click';
+            });
+        });
+    </script>
+</body>
+</html>
