@@ -264,10 +264,10 @@
             <div class="question-container" id="q3">
                 <h2 class="question">Do you have any ongoing health needs?</h2>
                 <div class="answer-options">
-                    <button class="answer-btn" onclick="nextQuestion(3, 'high')">
+                    <button class="answer-btn" onclick="showResults()">
                         💊 Yes, regular medications/visits
                     </button>
-                    <button class="answer-btn" onclick="nextQuestion(3, 'medium')">
+                    <button class="answer-btn" onclick="showResults()">
                         🏥 Occasional doctor visits
                     </button>
                     <button class="answer-btn" onclick="showResults()">
@@ -359,11 +359,13 @@
             // Show calculating screen
             document.getElementById('calculating').style.display = 'block';
             
+            // Update progress to 100%
+            document.getElementById('progress').style.width = '100%';
+            
             // After delay, show results
             setTimeout(() => {
                 document.getElementById('calculating').style.display = 'none';
                 document.getElementById('results').style.display = 'block';
-                document.getElementById('progress').style.width = '100%';
                 
                 // After showing results, wait 3 seconds then redirect
                 setTimeout(() => {
